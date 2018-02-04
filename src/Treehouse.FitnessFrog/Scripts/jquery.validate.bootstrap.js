@@ -1,19 +1,26 @@
 ﻿/* 
-##  
-##
-##
+##  AUTHOR      : James Churchill (modified by RJP)
+##  DATE        : unknown  
+##  SYNOPSIS    : Facilitate jQuery validation to make better use of the Bootstrap
+##                  validation features along side of it.
 */
 
-(function ($) {
-    var defaultOptions = {
+(function ($)
+{
+    var defaultOptions =
+    {
         validClass: 'has-success',
         errorClass: 'has-error',
-        highlight: function (element, errorClass, validClass) {
+
+        highlight: function (element, errorClass, validClass)
+        {
             $(element).closest('.form-group')
                 .removeClass(validClass)
                 .addClass(errorClass);
         },
-        unhighlight: function (element, errorClass, validClass) {
+
+        unhighlight: function (element, errorClass, validClass)
+        {
             $(element).closest('.form-group')
                 .removeClass(errorClass)
                 .addClass(validClass);
@@ -22,7 +29,8 @@
 
     $.validator.setDefaults(defaultOptions);
 
-    $.validator.unobtrusive.options = {
+    $.validator.unobtrusive.options =
+    {
         errorClass: defaultOptions.errorClass,
         validClass: defaultOptions.validClass,
     };
