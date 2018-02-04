@@ -131,12 +131,13 @@ namespace Treehouse.FitnessFrog.Controllers
             if (ModelState.IsValidField("Duration") && entry.Duration <= 0)
             {
                 ModelState.AddModelError("Duration",
-                    "Duration must be greater than '0'.");
+                    "Duration field must be greater than 0.");
             }
         }
 
         private void SetupActivitiesSelectListItems()
         {
+            // Populate the ViewBag source for the 'Activity' select list
             ViewBag.ActivitiesSelectListItems = new SelectList(
                 Data.Data.Activities, "Id", "Name");
         }
