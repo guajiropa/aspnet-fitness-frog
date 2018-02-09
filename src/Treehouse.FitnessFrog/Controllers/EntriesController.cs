@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* 
+##
+##
+##
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -20,6 +26,7 @@ namespace Treehouse.FitnessFrog.Controllers
 
         public ActionResult Index()
         {
+
             List<Entry> entries = _entriesRepository.GetEntries();
 
             // Calculate the total activity.
@@ -54,6 +61,7 @@ namespace Treehouse.FitnessFrog.Controllers
         [HttpPost]
         public ActionResult Add(Entry entry)
         {
+            // Validate the Duration entry
             ValidateDuration(entry);
 
             if (ModelState.IsValid)
@@ -77,7 +85,7 @@ namespace Treehouse.FitnessFrog.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            // Return with the requested entry from the repository
+            // Get the requested entry from the repository
             Entry entry = _entriesRepository.GetEntry((int)id);
 
             // If requested entry not found than return status of 'not found'.
@@ -96,7 +104,7 @@ namespace Treehouse.FitnessFrog.Controllers
         [HttpPost]
         public ActionResult Edit(Entry entry)
         {
-            // Validate the entry 
+            // Validate the Duration entry 
             ValidateDuration(entry);
 
             // Use the repository to update the entry
