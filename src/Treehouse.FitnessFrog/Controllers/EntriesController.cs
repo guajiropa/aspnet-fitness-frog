@@ -139,8 +139,7 @@ namespace Treehouse.FitnessFrog.Controllers
                 return HttpNotFound();
             }
 
-            // Pass the entry to the vies
-
+            // Pass the entry to the view
             return View(entry);
         }
 
@@ -149,8 +148,8 @@ namespace Treehouse.FitnessFrog.Controllers
         {
             // Delete entry
             _entriesRepository.DeleteEntry(id);
-            //Return to the index page
-
+            
+            //Return to the index action
             return RedirectToAction("Index");
         }
 
